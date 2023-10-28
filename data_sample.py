@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 
+
 def app():
 	st.header("Breast Cancer Data Structure")
 	st.write("Here you can explore a sample of the breast cancer dataset. Feel free to play with this data and learn more about breast cancer.")
@@ -36,3 +37,21 @@ def app():
 			st.dataframe(df[selected_columns].head(number_rows))
 		else:
 			st.dataframe(df.head(number_rows))
+
+	with st.container():
+		st.markdown("""### Statistical description of the cancer dataset. 
+			Find information about: Mean, Standard Deviation, Min, Max, and Percentiles. The results are based on the columns selection from above""")
+		if selected_columns:
+				try:
+					st.dataframe(df[selected_columns].describe().T.style.bar(subset=['mean'], color='#205ff2')\
+                            .background_gradient(subset=['std'], cmap='Reds')\
+                            .background_gradient(subset=['50%'], cmap='coolwarm'))
+				except KeyError:
+					st.warning('Error. Avoid selecting categorical columns such us diagnosis')
+
+		else:
+			st.dataframe(df.describe().T.style.bar(subset=['mean'], color='#205ff2')\
+                            .background_gradient(subset=['std'], cmap='Reds')\
+                            .background_gradient(subset=['50%'], cmap='coolwarm'))
+
+
