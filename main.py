@@ -30,9 +30,9 @@ class Multiapp:
 				menu_icon="window-sidebar", 
 				default_index=1,
 				styles={
-				"container":{"padding":"5!important","background-color":'white'},
-				"icon": {"color": "black", "font-size": "23px"},
-				"nav-link": {"color":"black","font-size": "15px",
+				"container":{"padding":"5!important","background-color":'black'},
+				"icon": {"color": "white", "font-size": "23px"},
+				"nav-link": {"color":"white","font-size": "15px",
 				"text-align": "left","margin":"0px","--hover-color": "#adadad"},
 				"nav-link-selected": {"background-color": "#FFC0CB","font-size": "14px"},}
 				)
