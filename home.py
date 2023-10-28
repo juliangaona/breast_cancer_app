@@ -1,5 +1,4 @@
 import streamlit as st
-from pydantic.v1 import BaseSettings
 from PIL import Image
 
 def app():
